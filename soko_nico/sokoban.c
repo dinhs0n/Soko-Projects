@@ -48,6 +48,7 @@ Position getSokoban(Grille grille)
      case NO_SOKOBAN : fprintf(stderr,"pas de Sokoban!\n"); break;
      case INCORRECT_GRID : fprintf(stderr,"Grille initiale incorrecte !\n"); break;
      case BAD_ENTRY : fprintf(stderr,"Entree incorrecte !\n"); break;
+     case INVALID_COMMANDE : fprintf(stderr,"Commande invalide !\n"); break;
      default: fprintf(stderr,"code erreur inconnu!\n");
     }
     exit(code);
@@ -124,4 +125,35 @@ void aide() {
 	printf("############ Voici l'aide du jeu ############\n");
     printf("q: pour Quitter (sort du programme)\na: pour Aide (affiche ce message d'aide)\nh: pour aller en Haut\nb: pour aller en Bas\ng: pour aller à Gauche\nd: pour aller à Droite\n");
 
+}
+
+Position newPosition(Position pos_depart,Commande cmd) {
+	Position position;
+	position.ligne = pos_depart.ligne;
+	position.colonne = pos_depart.colonne;
+
+	switch (cmd) {
+		case HAUT :
+
+			position.colonne = pos_depart.colonne + 1; 
+		
+
+		break;
+		case BAS : 
+		
+			position.colonne = pos_depart.colonne - 1; 
+		break;
+		case GAUCHE : 
+			position.ligne = pos_depart.ligne + 1;
+		 
+		break;
+		case DROITE : 
+			position.ligne = pos_depart.ligne - 1;
+		 
+		break; 
+		default : error(INVALID_COMMANDE);
+		break;
+	}
+
+	return position;
 }

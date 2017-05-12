@@ -37,7 +37,15 @@ int main(int argc, char ** argv) {
 
 	nouveauJeu(initiale, nouvelle);
 
-	while(condition == true) {
+	position = getSokoban(nouvelle);
+
+	printf("hauteur = %d , largeur = %d\n", position.colonne, position.ligne);
+
+	position = newPosition(position, HAUT);
+
+	printf("hauteur = %d , largeur = %d\n", position.colonne, position.ligne);
+
+/*	while(condition == true) {
 		
 		afficheGrille(nouvelle);
 		printf("> ");
@@ -47,7 +55,7 @@ int main(int argc, char ** argv) {
 		}
 		printf("%s\n", commande);
 	}
-
+*/
 	return 0;
 }
 
