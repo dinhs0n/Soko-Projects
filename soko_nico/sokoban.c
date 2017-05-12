@@ -79,6 +79,11 @@ void nouveauJeu(Grille init, Grille g) {
 Boolean verifGrille(Grille g) {
 
 	int i; int j; int largeur;
+	int nbCaisse = compteGrille(g, CAISSE);
+	int nbCible = compteGrille(g, CIBLE);
+
+	if(nbCaisse < 1) return false;
+	if(nbCaisse != nbCible) return false;
 
 	for(i=0; i<HAUTEUR; i++) {
 		largeur = 0;
