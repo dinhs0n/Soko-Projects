@@ -57,9 +57,9 @@ void nouveauJeu(Grille init, Grille g) {
 	int j;
 	int i;	
 
-/*	
+	
 	if(verifGrille(init) == false) error(INCORRECT_GRID);
-*/
+
 	for(i=0; i < HAUTEUR; i++) {
 		for(j = 0; j < LARGEUR + 1 ; j++) {
 			g[i][j] = init[i][j];
@@ -79,7 +79,6 @@ void nouveauJeu(Grille init, Grille g) {
 Boolean verifGrille(Grille g) {
 
 	int i; int j; int largeur;
-	printf("%d\n", LARGEUR);
 
 	for(i=0; i<HAUTEUR; i++) {
 		largeur = 0;
@@ -87,7 +86,6 @@ Boolean verifGrille(Grille g) {
 			largeur=largeur+1;
 			
 		}
-		printf("largeur = %d\n", largeur);
 		if(largeur != LARGEUR ) return false;
 	}
 	return true;	

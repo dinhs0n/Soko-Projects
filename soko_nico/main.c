@@ -36,6 +36,7 @@ int main(int argc, char ** argv) {
 	printf("\n#########################################################\nNouvelle grille :\n");
 	nouveauJeu(initiale, nouvelle);
 	afficheGrille(initiale);
+
 	
 	
 
