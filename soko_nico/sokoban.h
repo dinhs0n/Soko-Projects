@@ -32,5 +32,6 @@ Position getSokoban(Grille grille);
 void error(CodeError code);
 void nouveauJeu(Grille init, Grille g);
 Boolean verifGrille(Grille g);
+int compteGrille(Grille g, char c);
 
 #endif

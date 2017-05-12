@@ -90,3 +90,21 @@ Boolean verifGrille(Grille g) {
 	}
 	return true;	
 }
+
+int compteGrille(Grille g, char c) {
+
+	int j;
+	int i;
+	int compteur = 0;
+
+	for(i=0; i < HAUTEUR; i++) {
+		for(j = 0; j < LARGEUR + 1; j++) {
+			if(g[i][j] == c) {
+				compteur = compteur + 1;
+			}
+		}
+	}
+
+	return compteur;
+
+}
