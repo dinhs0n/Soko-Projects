@@ -21,7 +21,8 @@ int main(int argc, char ** argv) {
  "########################"
 };
 	Grille nouvelle;
-	
+	Grille initialeCache;
+	Grille jeu;
 /*	position = getSokoban(initiale);
 	printf("Voici ma position : { %d, %d }\n", position.colonne, position.ligne);
 	if(position.colonne == 0 && position.ligne == 0) {
@@ -35,7 +36,9 @@ int main(int argc, char ** argv) {
 */
 	printf("\n#########################################################\nNouvelle grille :\n");
 	nouveauJeu(initiale, nouvelle);
-	afficheGrille(initiale);
+	initialeCache = initiale;
+	initiale = nouvelle;
+	afficheGrille(initialeCache);
 	
 	
 
