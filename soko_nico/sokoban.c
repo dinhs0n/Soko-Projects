@@ -47,6 +47,7 @@ Position getSokoban(Grille grille)
     switch (code) {
      case NO_SOKOBAN : fprintf(stderr,"pas de Sokoban!\n"); break;
      case INCORRECT_GRID : fprintf(stderr,"Grille initiale incorrecte !\n"); break;
+     case BAD_ENTRY : fprintf(stderr,"Entree incorrecte !\n"); break;
      default: fprintf(stderr,"code erreur inconnu!\n");
     }
     exit(code);
@@ -59,6 +60,8 @@ void nouveauJeu(Grille init, Grille g) {
 
 	
 	if(verifGrille(init) == false) error(INCORRECT_GRID);
+
+	printf("\n############Nouvelle grille #################\n");
 
 	for(i=0; i < HAUTEUR; i++) {
 		for(j = 0; j < LARGEUR + 1 ; j++) {
@@ -82,7 +85,10 @@ Boolean verifGrille(Grille g) {
 	int nbCaisse = compteGrille(g, CAISSE);
 	int nbCible = compteGrille(g, CIBLE);
 
-	if(nbCaisse < 1) return false;
+	if(nbCaisse < 1) {
+		printf("pas de caisse ! ");
+		return false;
+	}
 	if(nbCaisse != nbCible) return false;
 
 	for(i=0; i<HAUTEUR; i++) {
@@ -111,5 +117,11 @@ int compteGrille(Grille g, char c) {
 	}
 
 	return compteur;
+
+}
+
+void aide() {
+	printf("############ Voici l'aide du jeu ############\n");
+    printf("q: pour Quitter (sort du programme)\na: pour Aide (affiche ce message d'aide)\nh: pour aller en Haut\nb: pour aller en Bas\ng: pour aller à Gauche\nd: pour aller à Droite\n");
 
 }

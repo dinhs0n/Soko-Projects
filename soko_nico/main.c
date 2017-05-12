@@ -21,7 +21,7 @@ int main(int argc, char ** argv) {
  "########################"
 };
 	Grille nouvelle;
-	int result;
+	Boolean condition = true;
 	
 /*	position = getSokoban(initiale);
 	printf("Voici ma position : { %d, %d }\n", position.colonne, position.ligne);
@@ -34,18 +34,19 @@ int main(int argc, char ** argv) {
 	}
 
 */
-	printf("\n#########################################################\nNouvelle grille :\n");
+
 	nouveauJeu(initiale, nouvelle);
-	afficheGrille(nouvelle);
 
-	printf("la cible apparait %d fois\n", compteGrille(initiale, CIBLE));
-
-
-
-	
-
-	
-	
+	while(condition == true) {
+		
+		afficheGrille(nouvelle);
+		printf("> ");
+		char commande[MAXCH+1];
+		if(fgets(commande,MAXCH,stdin) == NULL ) {
+			error(BAD_ENTRY);
+		}
+		printf("%s\n", commande);
+	}
 
 	return 0;
 }

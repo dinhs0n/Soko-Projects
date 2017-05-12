@@ -13,7 +13,7 @@
 enum Boolean { false = 0, true =1};
 enum Symbole { MUR = '#', CAISSE = 'O', CIBLE = 'o', SOKOBAN = 'S', VIDE = '.'};
 enum Commande { HAUT = 'h', BAS = 'b', GAUCHE = 'g', DROITE = 'd', AIDE = 'a', QUITTER = 'q'};
-enum CodeError {NO_SOKOBAN = 1, INCORRECT_GRID = 2};
+enum CodeError {NO_SOKOBAN = 1, INCORRECT_GRID = 2, BAD_ENTRY =3};
 
 typedef enum Boolean Boolean;
 typedef enum Symbole Symbole;
@@ -33,5 +33,6 @@ void error(CodeError code);
 void nouveauJeu(Grille init, Grille g);
 Boolean verifGrille(Grille g);
 int compteGrille(Grille g, char c);
+void aide();
 
 #endif
